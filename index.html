@@ -16,12 +16,21 @@
             --max-width: 980px;
         }
 
+        body.dark-mode {
+            --bg: #121212;
+            --bg-alt: #1b1b1b;
+            --text: #f1f1f1;
+            --text-soft: #c7c7c7;
+            --accent: #7fc8a9;
+            --border: #333333;
+        }
+
         * { box-sizing: border-box; }
 
         html, body {
             margin: 0;
             padding: 0;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: 'Comic Sans MS', 'Comic Sans', cursive;
             color: var(--text);
             background: var(--bg);
             line-height: 1.55;
@@ -45,6 +54,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 16px;
         }
         .brand {
             font-size: 1.05rem;
@@ -53,10 +63,28 @@
             color: var(--text);
             font-weight: 600;
         }
+        .nav {
+            display: flex;
+            align-items: center;
+        }
         .nav a {
             margin-left: 22px;
             font-size: 0.95rem;
             color: var(--text-soft);
+        }
+        .theme-toggle {
+            margin-left: 22px;
+            padding: 8px 14px;
+            border: 1px solid var(--border);
+            background: var(--bg-alt);
+            color: var(--text);
+            border-radius: 999px;
+            cursor: pointer;
+            font: inherit;
+        }
+        .theme-toggle:hover {
+            text-decoration: none;
+            opacity: 0.9;
         }
 
         main { display: block; }
@@ -205,7 +233,14 @@
             .hero img.portrait { margin: 0 auto; width: 170px; height: 170px; }
             .capabilities-grid { grid-template-columns: 1fr; gap: 24px; }
             .experience-item { grid-template-columns: 1fr; gap: 6px; }
-            .nav { display: none; }
+            .nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .banner-inner {
+                flex-direction: column;
+            }
             section { padding: 50px 28px; }
         }
     </style>
@@ -219,6 +254,7 @@
                 <a href="#capabilities">Capabilities</a>
                 <a href="#experience">Experience</a>
                 <a href="#contact">Contact</a>
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">Dark mode</button>
             </nav>
         </div>
     </header>
@@ -238,9 +274,9 @@
         <section id="about" class="about">
             <div class="inner">
                 <h1 class="section-title">+20 years in IT architecture and software engineering</h1>
-                <p>I am Principal IT Architect at <strong>DSB</strong>, the Danish State Railways, where I have spent more than 8 years shaping how the organization builds and runs software. My focus is on platform engineering, cloud-native architecture and the human side of delivering reliable IT — small, trusted teams with shared goals, high mutual trust and direct communication.</p>
-                <p>For nearly eight years I was part of the DSB Systems team, where we built <strong>MAX</strong> — DSB's internal developer platform centered around GitHub, Kubernetes, FluxCD and the Grafana observability stack, glued together with a lot of Python. The platform got new projects up and running in minutes, with observability, security, code quality and micro-service architecture built into the box. Today I am building a new platform for train maintenance.</p>
-                <p>Before DSB I worked across the Danish public sector and financial industry — as Systemarkitekt at Alka Forsikring, Chefkonsulent at Skatteministeriet, and Senior Applikationsarkitekt at Nykredit, where I developed the Swipp mobile payment solution.</p>
+                <p>I am Principal IT Architect at <strong>DSB</strong>, the Danish State Railways, where I have spent more than 8 years shaping how the organization builds and runs software. My focus [...]</p>
+                <p>For nearly eight years I was part of the DSB Systems team, where we built <strong>MAX</strong> — DSB's internal developer platform centered around GitHub, Kubernetes, FluxCD and t[...]</p>
+                <p>Before DSB I worked across the Danish public sector and financial industry — as Systemarkitekt at Alka Forsikring, Chefkonsulent at Skatteministeriet, and Senior Applikationsarkit[...]</p>
             </div>
         </section>
 
@@ -375,5 +411,23 @@
             <span>Copenhagen, Denmark</span>
         </div>
     </footer>
+
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+        const savedTheme = localStorage.getItem('theme');
+
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+            toggleButton.textContent = 'Light mode';
+        }
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            toggleButton.textContent = isDark ? 'Light mode' : 'Dark mode';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    </script>
 </body>
 </html>
