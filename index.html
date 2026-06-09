@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Søren Rindal Nielsen</title>
+    <meta name="description" content="Søren Rindal Nielsen — Principal IT Architect at DSB. Platform engineering, Kubernetes, observability and cloud-native architecture.">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --bg-alt: #f6f6f4;
+            --text: #2b2b2b;
+            --text-soft: #585858;
+            --accent: #2f5d50;
+            --border: #e3e3df;
+            --max-width: 980px;
+        }
+
+        * { box-sizing: border-box; }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.55;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        a:hover { text-decoration: underline; }
+
+        .banner {
+            border-bottom: 1px solid var(--border);
+            background: var(--bg);
+        }
+        .banner-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 22px 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .brand {
+            font-size: 1.05rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--text);
+            font-weight: 600;
+        }
+        .nav a {
+            margin-left: 22px;
+            font-size: 0.95rem;
+            color: var(--text-soft);
+        }
+
+        main { display: block; }
+
+        section {
+            padding: 70px 28px;
+            border-bottom: 1px solid var(--border);
+        }
+        section .inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .hero {
+            background: var(--bg);
+            padding: 90px 28px 70px;
+        }
+        .hero .inner {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        .hero img.portrait {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+        }
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            line-height: 1.25;
+            margin: 0 0 18px;
+            color: var(--text);
+        }
+        .hero h2 {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: var(--text-soft);
+            margin: 0;
+            line-height: 1.5;
+        }
+        .hero .location {
+            margin-top: 18px;
+            font-size: 0.95rem;
+            color: var(--text-soft);
+        }
+
+        h1.section-title, h2.section-title {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin: 0 0 28px;
+            color: var(--text);
+        }
+
+        .about p {
+            font-size: 1.02rem;
+            color: var(--text-soft);
+            margin: 0 0 18px;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .capability h3 {
+            font-size: 1.05rem;
+            margin: 0 0 10px;
+            color: var(--text);
+            font-weight: 600;
+        }
+        .capability p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-soft);
+        }
+
+        .experience-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .experience-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 24px;
+            padding: 22px 0;
+            border-top: 1px solid var(--border);
+        }
+        .experience-item:first-child { border-top: none; padding-top: 0; }
+        .experience-period {
+            color: var(--text-soft);
+            font-size: 0.9rem;
+        }
+        .experience-role {
+            font-weight: 600;
+            margin: 0 0 4px;
+            color: var(--text);
+        }
+        .experience-company {
+            color: var(--text-soft);
+            font-size: 0.95rem;
+            margin: 0 0 6px;
+        }
+        .experience-note {
+            font-size: 0.92rem;
+            color: var(--text-soft);
+            margin: 6px 0 0;
+            font-style: italic;
+        }
+
+        .education p, .volunteering p {
+            margin: 0 0 10px;
+            color: var(--text-soft);
+        }
+        .education strong, .volunteering strong { color: var(--text); font-weight: 600; }
+
+        .contact {
+            background: var(--bg-alt);
+        }
+        .contact p { margin: 0 0 12px; font-size: 1rem; color: var(--text-soft); }
+
+        footer {
+            padding: 28px;
+            color: var(--text-soft);
+            font-size: 0.85rem;
+        }
+        .footer-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        @media (max-width: 760px) {
+            .hero { padding: 50px 28px 40px; }
+            .hero .inner {
+                grid-template-columns: 1fr;
+                gap: 24px;
+                text-align: center;
+            }
+            .hero img.portrait { margin: 0 auto; width: 170px; height: 170px; }
+            .capabilities-grid { grid-template-columns: 1fr; gap: 24px; }
+            .experience-item { grid-template-columns: 1fr; gap: 6px; }
+            .nav { display: none; }
+            section { padding: 50px 28px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="banner">
+        <div class="banner-inner">
+            <div class="brand">Søren Rindal Nielsen</div>
+            <nav class="nav" aria-label="Primary">
+                <a href="#about">About</a>
+                <a href="#capabilities">Capabilities</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" aria-label="Introduction">
+            <div class="inner">
+                <img src="./rindal.jpg" alt="Portrait of Søren Rindal Nielsen" class="portrait">
+                <div>
+                    <h1>Principal IT Architect with a passion for building developer platforms that just work.</h1>
+                    <h2>I believe great software is built by small, trusted teams using the right tools — with observability, security and quality built in from the start.</h2>
+                    <p class="location">Copenhagen, Capital Region of Denmark</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="inner">
+                <h1 class="section-title">+20 years in IT architecture and software engineering</h1>
+                <p>I am Principal IT Architect at <strong>DSB</strong>, the Danish State Railways, where I have spent more than 8 years shaping how the organization builds and runs software. My focus is on platform engineering, cloud-native architecture and the human side of delivering reliable IT — small, trusted teams with shared goals, high mutual trust and direct communication.</p>
+                <p>For nearly eight years I was part of the DSB Systems team, where we built <strong>MAX</strong> — DSB's internal developer platform centered around GitHub, Kubernetes, FluxCD and the Grafana observability stack, glued together with a lot of Python. The platform got new projects up and running in minutes, with observability, security, code quality and micro-service architecture built into the box. Today I am building a new platform for train maintenance.</p>
+                <p>Before DSB I worked across the Danish public sector and financial industry — as Systemarkitekt at Alka Forsikring, Chefkonsulent at Skatteministeriet, and Senior Applikationsarkitekt at Nykredit, where I developed the Swipp mobile payment solution.</p>
+            </div>
+        </section>
+
+        <section id="capabilities">
+            <div class="inner">
+                <h1 class="section-title">Core capabilities and experiences</h1>
+                <div class="capabilities-grid">
+                    <div class="capability">
+                        <h3>Platform Engineering</h3>
+                        <p>Designing and operating internal developer platforms on Kubernetes (AKS), with GitOps via FluxCD, Grafana observability and CI/CD baked in by default.</p>
+                    </div>
+                    <div class="capability">
+                        <h3>Cloud-Native Architecture</h3>
+                        <p>Micro-service architecture, event-driven design and pragmatic use of managed cloud services to keep operations simple and cost predictable.</p>
+                    </div>
+                    <div class="capability">
+                        <h3>Observability &amp; Reliability</h3>
+                        <p>Building observability stacks that help engineers find and fix issues fast — without drowning teams in noise or replacing good code with expensive telemetry.</p>
+                    </div>
+                    <div class="capability">
+                        <h3>Software Development</h3>
+                        <p>Hands-on architect who reads and writes code. Python, infrastructure-as-code and the glue that ties developer experience together.</p>
+                    </div>
+                    <div class="capability">
+                        <h3>Solution Architecture</h3>
+                        <p>Enterprise-level system design across the Danish public sector and financial industry — from mobile payments to tax administration and insurance.</p>
+                    </div>
+                    <div class="capability">
+                        <h3>Team &amp; Delivery</h3>
+                        <p>Small dedicated teams, shared goals, mutual trust and close collaboration with stakeholders. People and culture as the real path to delivering value.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="inner">
+                <h1 class="section-title">Experience</h1>
+                <ul class="experience-list">
+                    <li class="experience-item">
+                        <div class="experience-period">May 2025 – Present</div>
+                        <div>
+                            <p class="experience-role">Principal IT Architect</p>
+                            <p class="experience-company">DSB · Full-time</p>
+                            <p class="experience-note">Building a new platform for train maintenance.</p>
+                        </div>
+                    </li>
+                    <li class="experience-item">
+                        <div class="experience-period">Jun 2023 – May 2025</div>
+                        <div>
+                            <p class="experience-role">Principal IT Business Consultant</p>
+                            <p class="experience-company">DSB · Full-time · Denmark</p>
+                        </div>
+                    </li>
+                    <li class="experience-item">
+                        <div class="experience-period">Apr 2018 – May 2023</div>
+                        <div>
+                            <p class="experience-role">Senior IT Business Consultant</p>
+                            <p class="experience-company">DSB</p>
+                            <p class="experience-note">Co-built the DSB MAX developer platform on Kubernetes, FluxCD, Grafana and Python.</p>
+                        </div>
+                    </li>
+                    <li class="experience-item">
+                        <div class="experience-period">Aug 2016 – Mar 2018</div>
+                        <div>
+                            <p class="experience-role">Systemarkitekt</p>
+                            <p class="experience-company">Alka Forsikring</p>
+                        </div>
+                    </li>
+                    <li class="experience-item">
+                        <div class="experience-period">Mar 2015 – Jul 2016</div>
+                        <div>
+                            <p class="experience-role">Chefkonsulent</p>
+                            <p class="experience-company">Skatteministeriet</p>
+                        </div>
+                    </li>
+                    <li class="experience-item">
+                        <div class="experience-period">Dec 2010 – Feb 2015</div>
+                        <div>
+                            <p class="experience-role">Senior Applikationsarkitekt</p>
+                            <p class="experience-company">Nykredit</p>
+                            <p class="experience-note">Developed Nykredit's Swipp mobile payment solution.</p>
+                        </div>
+                    </li>
+                    <li class="experience-item">
+                        <div class="experience-period">Sep 2008 – Nov 2010</div>
+                        <div>
+                            <p class="experience-role">Løsningsarkitekt</p>
+                            <p class="experience-company">DSB</p>
+                        </div>
+                    </li>
+                    <li class="experience-item">
+                        <div class="experience-period">Mar 2006 – Sep 2008</div>
+                        <div>
+                            <p class="experience-role">Specialkonsulent</p>
+                            <p class="experience-company">DSB</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education" class="education">
+            <div class="inner">
+                <h1 class="section-title">Education</h1>
+                <p><strong>Cand. Scient., Datalogi</strong> — Datalogisk Institut, Københavns Universitet (1992 – 2001)</p>
+                <p><strong>Sidefag, Dansk</strong> — Institut for Nordisk Filologi, Københavns Universitet (1993 – 1999)</p>
+            </div>
+        </section>
+
+        <section class="volunteering">
+            <div class="inner">
+                <h1 class="section-title">Volunteering</h1>
+                <p><strong>Formand, bestyrelse</strong> — Sct Nicolai Skole (2018 – 2023). Skolebestyrelsesarbejde i samarbejde med kommunens øvrige skolebestyrelser.</p>
+                <p><strong>Bestyrelsesmedlem</strong> — Skolen Bifrost (2023 – 2025). Friskole med fokus på trivsel for højtbegavede børn.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="inner">
+                <h2 class="section-title">Contact</h2>
+                <p>
+                    <a href="https://www.linkedin.com/in/rindal/" rel="me noopener">www.linkedin.com/in/rindal</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <span>© Søren Rindal Nielsen</span>
+            <span>Copenhagen, Denmark</span>
+        </div>
+    </footer>
+</body>
+</html>
