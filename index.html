@@ -227,7 +227,7 @@
         <section class="hero" aria-label="Introduction">
             <div class="inner">
                 <img src="./rindal.jpg" alt="Portrait of Søren Rindal Nielsen" class="portrait">
-                <div>
+                <div id="hero-content">
                     <h1>Principal IT Architect with a passion for building developer platforms that just work.</h1>
                     <h2>I believe great software is built by small, trusted teams using the right tools — with observability, security and quality built in from the start.</h2>
                     <p class="location">Copenhagen, Capital Region of Denmark</p>
@@ -377,6 +377,59 @@
     </footer>
 
     <script>
+        const heroVersions = [
+            {
+                headline: 'Principal IT Architect building the platforms that make great teams faster.',
+                subhead: 'I turn cloud-native architecture, Kubernetes, GitOps and observability into developer platforms that are practical, reliable and genuinely useful.',
+                location: 'Copenhagen, Capital Region of Denmark'
+            },
+            {
+                headline: 'Hands-on architect with +20 years of scars, systems and successful deliveries.',
+                subhead: 'From railways and banking to public-sector platforms, I build technology foundations that can handle complexity without making teams slower.',
+                location: 'Copenhagen, Denmark'
+            },
+            {
+                headline: 'I make enterprise IT feel modern, disciplined and surprisingly usable.',
+                subhead: 'Developer experience, production reliability, automation and security belong together — not as slogans, but as working architecture.',
+                location: 'Copenhagen · Platform engineering · Cloud-native architecture'
+            },
+            {
+                headline: 'Architecting developer platforms for systems that need to work every day.',
+                subhead: 'I believe small trusted teams can deliver exceptional software when the platform removes friction and the architecture is honest about reality.',
+                location: 'Copenhagen, Capital Region of Denmark'
+            },
+            {
+                headline: 'Cloud-native pragmatist. Platform builder. Enterprise translator.',
+                subhead: 'I connect strategy with code, Kubernetes with teams, observability with accountability and architecture with actual delivery.',
+                location: 'Copenhagen · Denmark'
+            },
+            {
+                headline: 'Building paved roads for software teams — without forgetting the off-ramps.',
+                subhead: 'GitHub, Kubernetes, FluxCD, Grafana and Python are part of the toolbox; the real craft is making them serve engineers and business-critical systems.',
+                location: 'Copenhagen, Denmark'
+            },
+            {
+                headline: 'Principal IT Architect focused on platforms, reliability and delivery culture.',
+                subhead: 'I help organizations move faster by making the right way the easy way: secure defaults, automation, observability and strong technical ownership.',
+                location: 'Copenhagen · DSB · Modern IT architecture'
+            },
+            {
+                headline: 'I design IT foundations that teams trust and production systems deserve.',
+                subhead: 'More than two decades in software and architecture have taught me to value simplicity, clarity, automation and systems that survive real operations.',
+                location: 'Copenhagen, Capital Region of Denmark'
+            },
+            {
+                headline: 'From mobile payments to railway platforms: serious systems, modern engineering.',
+                subhead: 'My work spans solution architecture, internal developer platforms, public-sector IT, financial systems and the practical side of cloud-native delivery.',
+                location: 'Copenhagen · Transport · Finance · Public sector'
+            },
+            {
+                headline: 'A principal architect who still cares about the code, the pipeline and the pager.',
+                subhead: 'Great architecture shows up in the daily experience of teams: faster feedback, fewer surprises, better ownership and production insight when it matters.',
+                location: 'Copenhagen, Denmark'
+            }
+        ];
+
         const aboutVersions = [
             {
                 title: '+20 years in IT architecture and software engineering',
@@ -495,6 +548,16 @@
             return [...items].sort(() => Math.random() - 0.5);
         }
 
+        function renderHero() {
+            const hero = randomItem(heroVersions);
+            const heroContent = document.getElementById('hero-content');
+            heroContent.innerHTML = `
+                <h1>${hero.headline}</h1>
+                <h2>${hero.subhead}</h2>
+                <p class="location">${hero.location}</p>
+            `;
+        }
+
         function renderAbout() {
             const about = randomItem(aboutVersions);
             const aboutContent = document.getElementById('about-content');
@@ -515,6 +578,7 @@
             `).join('');
         }
 
+        renderHero();
         renderAbout();
         renderCapabilities();
     </script>
